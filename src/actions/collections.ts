@@ -23,7 +23,7 @@ export const getUserCollections = async (
     return {
       error: isError ? null : data,
       ok: isError,
-      data: isError ? data : null,
+      data: isError ? (data.length > 0 ? data : null) : null,
     };
   } catch (err: any) {
     return {
