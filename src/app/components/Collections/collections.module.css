@@ -1,0 +1,164 @@
+/* The animation code */
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.collectionContainer {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (max-width: 768px) {
+  .collectionContainer {
+    width: 100%;
+  }
+}
+.collectionCards {
+  display: flex;
+  flex-direction: column;
+  border-radius: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  animation-name: appear;
+  animation-duration: 1s;
+  margin: 20px;
+  -webkit-box-shadow: -10px 10px 2px 3px white;
+  -moz-box-shadow: -10px 10px 2px 3px white;
+  box-shadow: -10px 10px 2px 3px rgb(43, 43, 43);
+}
+.collectionCards:hover {
+  transform: scale(1.1);
+  transition: all 0.1s linear;
+  box-shadow: none;
+}
+.popover {
+  display: none;
+  color: white;
+  font-weight: 700;
+}
+.popover ::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #968cff transparent transparent transparent;
+}
+.collectionCards:hover .popover {
+  display: block;
+  position: absolute;
+  bottom: 90%;
+  left: 0 auto;
+  width: 150%;
+  height: 60%;
+  background-color: #968cff;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: small;
+  border-radius: 10px;
+}
+
+.id {
+  text-align: center;
+}
+
+.cardName {
+  padding: 10px;
+  text-align: center;
+}
+.cardImage {
+  width: 150px;
+  height: 150px;
+  background-color: white;
+  border-radius: 100%;
+  border: white 5px solid;
+  cursor: pointer;
+}
+
+.cardImage:hover {
+  animation: rotation 60s linear infinite;
+}
+
+.section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: end;
+  height: 50vh;
+  width: 100%;
+}
+.title {
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+.sendButton {
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #968cff;
+  color: white;
+  font-size: large;
+  cursor: pointer;
+  margin: 20px;
+  border: none;
+  border-bottom: #7c72e2 5px solid;
+}
+.sendButton:hover {
+  background-color: #8f86f0;
+  opacity: 0.8;
+}
+.resetButton {
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: rgb(80, 0, 254);
+  color: white;
+  font-size: large;
+  cursor: pointer;
+  margin: 20px;
+  border: none;
+  border-bottom: #10039b 5px solid;
+}
+.resetButton:hover {
+  background-color: rgb(80, 0, 254);
+  opacity: 0.8;
+}
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #fff;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
