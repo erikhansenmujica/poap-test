@@ -10,6 +10,9 @@ export const useCollections = () => {
   const [collections, setCollections] = useState<Collection[]>([]);
   const getCollections = async () => {
     try {
+      if (collections.length) {
+        setCollections([]);
+      }
       if (error || message) {
         setError(false);
         setMessage("");
@@ -34,6 +37,7 @@ export const useCollections = () => {
   const removeCollections = () => {
     setCollections([]);
     setAddress("");
+    setMessage("");
   };
   return {
     address,
