@@ -20,6 +20,7 @@ export const List = ({ collections }: ListProps) => {
               <p className={styles.id}>{collection.event.id}</p>
             </div>
             <Image
+              unoptimized={true}
               src={collection.event.image_url + "?size=small"}
               alt={""}
               className={styles.cardImage}
