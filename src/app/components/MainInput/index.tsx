@@ -1,4 +1,4 @@
-import styles from "./inputs.module.css";
+import styles from "./maininput.module.css";
 interface InputProps {
   address: string;
   setAddress: (address: string) => void;

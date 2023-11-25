@@ -1,6 +1,6 @@
 "use client";
 import styles from "./collections.module.css";
-import { Input } from "../Inputs/mainInput";
+import { Input } from "../MainInput";
 import { List } from "./content/list";
 import Image from "next/image";
 import { Rubik } from "next/font/google";
@@ -22,11 +22,11 @@ export const Collections = () => {
   return (
     <div className={styles.container}>
       <section className={styles.section}>
-        <Image src="/poap.svg" width={100} height={100} alt=""></Image>
+        <Image src="/poap.svg" priority width={100} height={100} alt=""></Image>
         <h1 className={styles.title}>COLLECTIONS</h1>
         <Input address={address} error={error} setAddress={setAddress} />
       </section>
-      {!loading && (
+      {loading ? null : (
         <div>
           <button
             className={`${styles.sendButton} ${rubik.className}`}
@@ -34,7 +34,7 @@ export const Collections = () => {
           >
             GET
           </button>
-          {collections.length ? (
+          {collections ? (
             <button
               className={`${styles.resetButton} ${rubik.className}`}
               onClick={removeCollections}
@@ -49,7 +49,7 @@ export const Collections = () => {
       <h3 className={styles.title}>{message}</h3>
       {loading ? (
         <div className={styles.loader}></div>
-      ) : collections.length ? (
+      ) : collections ? (
         <List collections={collections} />
       ) : (
         <div />

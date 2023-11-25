@@ -25,3 +25,17 @@ export interface ErrorResponse {
   message: string;
   statusCode: number;
 }
+
+interface ErrorResult {
+  ok: false;
+  error: Error;
+  data: null;
+}
+
+interface SuccessResult<T> {
+  ok: true;
+  error: null;
+  data: T;
+}
+
+export type Result<T> = SuccessResult<T> | ErrorResult;

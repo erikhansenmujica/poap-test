@@ -1,29 +1,35 @@
-import { Collection, ErrorResponse } from "@/utils/types";
+import { isErrorQuery } from "@/utils/checkers";
+import { Collection, ErrorResponse, Result } from "@/utils/types";
 
 const options = {
   method: "GET",
   headers: {
     accept: "application/json",
-    "X-API-Key": process.env.NEXT_PUBLIC_API_KEY
-      ? process.env.NEXT_PUBLIC_API_KEY
-      : "",
+    "X-API-Key": process.env.API_KEY ? process.env.API_KEY : "",
   },
 };
 
-export const userCollections = async (
+export const getUserCollections = async (
   address: string
-): Promise<Collection[] | ErrorResponse> => {
+): Promise<Result<Collection>> => {
   try {
     const response = await fetch(
       "https://api.poap.tech/actions/scan/" + address,
       options
     );
-    return response.json();
+    const res = await response.json();
+    const isError = isErrorQuery(res);
+    const data = res;
+    return {
+      error: isError ? null : data,
+      ok: isError,
+      data: isError ? data : null,
+    };
   } catch (err: any) {
     return {
-      error: "Error",
-      message: err.message ? err.message : "Something went wrong",
-      statusCode: 500,
+      error: err,
+      ok: false,
+      data: null,
     };
   }
 };

@@ -1,4 +1,3 @@
-import { userCollections } from "@/actions/collections";
 import { Collection } from "@/utils/types";
 import { useState } from "react";
 
@@ -7,29 +6,38 @@ export const useCollections = () => {
   const [message, setMessage] = useState<string>("");
   const [error, setError] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
-  const [collections, setCollections] = useState<Collection[]>([]);
+  const [collections, setCollections] = useState<Collection[] | null>();
   const getCollections = async () => {
     try {
-      if (collections.length) {
-        setCollections([]);
+      if (!address) {
+        setError(true);
+        setMessage("Please insert an address");
+        return;
+      }
+      if (collections) {
+        setCollections(null);
       }
       if (error || message) {
         setError(false);
         setMessage("");
       }
       setLoading(true);
-      const response = await userCollections(address);
-      if ("length" in response) {
-        if (!response.length) {
+      const res = await fetch(`/api/collections/${address}`);
+      const response = await res.json();
+      if (response.ok) {
+        if (!response.data) {
           setMessage("No collections found");
         } else {
-          setCollections(response);
+          setCollections(response.data);
         }
-      } else if ("message" in response) {
-        setMessage(response.message);
-        setError(true);
-      } else {
-        setMessage("No collections found");
+      } else if (!response.ok) {
+        if (response.error.message) {
+          setMessage(response.error.message);
+          setError(true);
+        } else {
+          setMessage("Something went wrong");
+          setError(true);
+        }
       }
       setLoading(false);
     } catch (error) {
@@ -39,7 +47,7 @@ export const useCollections = () => {
     }
   };
   const removeCollections = () => {
-    setCollections([]);
+    setCollections(null);
     setAddress("");
     setMessage("");
   };
