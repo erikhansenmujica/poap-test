@@ -19,8 +19,11 @@ export const userCollections = async (
       options
     );
     return response.json();
-  } catch (err) {
-    console.error(err);
+  } catch (err: any) {
+    return {
+      error: "Error",
+      message: err.message ? err.message : "Something went wrong",
+      statusCode: 500,
+    };
   }
-  return [];
 };
