@@ -10,10 +10,11 @@ export const List = ({ collections }: ListProps) => {
     <div className={styles.collectionContainer}>
       {collections.map((collection) => (
         <Link
+          key={collection.tokenId}
           target="_blank"
           href={`https://poap.gallery/r/event/${collection.event.id}`}
         >
-          <div key={collection.tokenId} className={styles.collectionCards}>
+          <div className={styles.collectionCards}>
             <div className={styles.popover}>
               <p className={styles.cardName}>{collection.event.name}</p>
               <p className={styles.id}>{collection.event.id}</p>
