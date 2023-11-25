@@ -20,7 +20,11 @@ export const useCollections = () => {
       setLoading(true);
       const response = await userCollections(address);
       if ("length" in response) {
-        setCollections(response);
+        if (!response.length) {
+          setMessage("No collections found");
+        } else {
+          setCollections(response);
+        }
       } else if ("message" in response) {
         setMessage(response.message);
         setError(true);
