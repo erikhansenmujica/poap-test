@@ -20,8 +20,8 @@ export const Collections = () => {
     removeCollections,
   } = useCollections();
   return (
-    <div className={styles.container}>
-      <section className={styles.section}>
+    <div className={`${styles.flexColumn} ${styles.container}`}>
+      <section className={`${styles.flexColumn} ${styles.section}`}>
         <Image src="/poap.svg" priority width={100} height={100} alt=""></Image>
         <h1 className={styles.title}>COLLECTIONS</h1>
         <Input address={address} error={error} setAddress={setAddress} />
@@ -29,14 +29,14 @@ export const Collections = () => {
       {loading ? null : (
         <div>
           <button
-            className={`${styles.sendButton} ${rubik.className}`}
+            className={`${styles.button} ${styles.sendButton} ${rubik.className}`}
             onClick={getCollections}
           >
             GET
           </button>
           {collections ? (
             <button
-              className={`${styles.resetButton} ${rubik.className}`}
+              className={`${styles.button} ${styles.resetButton} ${rubik.className}`}
               onClick={removeCollections}
             >
               RESET

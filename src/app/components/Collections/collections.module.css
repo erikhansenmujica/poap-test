@@ -7,11 +7,13 @@
     opacity: 1;
   }
 }
-.container {
+.flexColumn {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+}
+.container {
+  justify-content: center;
 }
 .collectionContainer {
   width: 80%;
@@ -26,11 +28,7 @@
   }
 }
 .collectionCards {
-  display: flex;
-  flex-direction: column;
   border-radius: 100%;
-  justify-content: center;
-  align-items: center;
   background-color: white;
   color: black;
   cursor: pointer;
@@ -62,6 +60,7 @@
   border-color: var(--purple-poap) transparent transparent transparent;
 }
 .collectionCards:hover .popover {
+  justify-content: space-evenly;
   display: block;
   position: absolute;
   bottom: 90%;
@@ -70,10 +69,6 @@
   height: 60%;
   background-color: var(--purple-poap);
   z-index: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
   font-size: small;
   border-radius: 10px;
 }
@@ -100,9 +95,6 @@
 }
 
 .section {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
   justify-content: end;
   height: 50vh;
   width: 100%;
@@ -111,16 +103,18 @@
   margin-top: 25px;
   margin-bottom: 10px;
 }
-.sendButton {
+.button {
   width: 100px;
   height: 40px;
   border-radius: 10px;
-  background-color: var(--purple-poap);
   color: white;
   font-size: large;
   cursor: pointer;
   margin: 20px;
   border: none;
+}
+.sendButton {
+  background-color: var(--purple-poap);
   border-bottom: var(--purple-poap-border) 5px solid;
 }
 .sendButton:hover {
@@ -128,15 +122,7 @@
   opacity: 0.8;
 }
 .resetButton {
-  width: 100px;
-  height: 40px;
-  border-radius: 10px;
   background-color: var(--blue-poap);
-  color: white;
-  font-size: large;
-  cursor: pointer;
-  margin: 20px;
-  border: none;
   border-bottom: var(--blue-poap-border) 5px solid;
 }
 .resetButton:hover {

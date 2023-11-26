@@ -14,8 +14,10 @@ export const List = ({ collections }: ListProps) => {
           target="_blank"
           href={`https://poap.gallery/r/event/${collection.event.id}`}
         >
-          <div className={styles.collectionCards}>
-            <div className={styles.popover}>
+          <div
+            className={`${styles.flexColumn} ${styles.container} ${styles.collectionCards}`}
+          >
+            <div className={`${styles.popover} ${styles.flexColumn}`}>
               <p className={styles.cardName}>{collection.event.name}</p>
               <p className={styles.id}>{collection.event.id}</p>
             </div>

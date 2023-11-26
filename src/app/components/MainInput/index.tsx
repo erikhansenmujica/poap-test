@@ -14,7 +14,7 @@ export const Input = ({ address, setAddress, error }: InputProps) => {
         onChange={(e) => {
           setAddress(e.target.value);
         }}
-        className={error ? styles.inputError : styles.input}
+        className={`${styles.input} ${error ? styles.inputError : ""}`}
       />
     </div>
   );
