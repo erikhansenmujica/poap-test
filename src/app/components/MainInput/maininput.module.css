@@ -11,7 +11,7 @@
   margin: 20px;
   text-align: center;
   font-size: large;
-  border: rgb(195, 69, 69) 2px solid;
+  border: var(--input-red) 2px solid;
 }
 .inputContainer {
   display: flex;

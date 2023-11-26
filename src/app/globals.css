@@ -34,6 +34,13 @@
   --callout-border-rgb: 172, 175, 176;
   --card-rgb: 180, 185, 188;
   --card-border-rgb: 131, 134, 135;
+  --input-red: #c34545;
+  --purple-poap: #968cff;
+  --purple-poap-hover: #8f86f0;
+  --purple-poap-border: #7c72e2;
+  --blue-poap: #5000fe;
+  --blue-poap-hover: #5000fe;
+  --blue-poap-border: #10039b;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -60,11 +67,17 @@
       #ffffff10,
       #ffffff80
     );
-
     --callout-rgb: 20, 20, 20;
     --callout-border-rgb: 108, 108, 108;
     --card-rgb: 100, 100, 100;
     --card-border-rgb: 200, 200, 200;
+    --input-red: #c34545;
+    --purple-poap: #968cff;
+    --purple-poap-hover: #8f86f0;
+    --purple-poap-border: #7c72e2;
+    --blue-poap: #5000fe;
+    --blue-poap-hover: #5000fe;
+    --blue-poap-border: #10039b;
   }
 }
 
