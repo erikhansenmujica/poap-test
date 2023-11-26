@@ -61,7 +61,7 @@
 }
 .collectionCards:hover .popover {
   justify-content: space-evenly;
-  display: block;
+  display: flex;
   position: absolute;
   bottom: 90%;
   left: 0 auto;

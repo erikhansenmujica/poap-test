@@ -17,7 +17,7 @@ export const List = ({ collections }: ListProps) => {
           <div
             className={`${styles.flexColumn} ${styles.container} ${styles.collectionCards}`}
           >
-            <div className={`${styles.popover} ${styles.flexColumn}`}>
+            <div className={`${styles.flexColumn} ${styles.popover}`}>
               <p className={styles.cardName}>{collection.event.name}</p>
               <p className={styles.id}>{collection.event.id}</p>
             </div>
